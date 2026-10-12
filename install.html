@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install Habits on R1</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#111;color:#eee;font-family:system-ui,sans-serif;padding:24px;box-sizing:border-box;text-align:center}
+#qr{background:#fff;padding:16px;border-radius:12px}
+pre{background:#000;color:#aaa;padding:12px;border-radius:8px;font-size:12px;text-align:left;max-width:100%;overflow:auto}
+h1{margin:0;font-size:20px}
+p{margin:0;color:#999;font-size:14px}
+</style>
+</head>
+<body>
+<h1>Habits for rabbit r1</h1>
+<p>Scan this with your R1 to install the creation.</p>
+<div id="qr"></div>
+<pre id="json"></pre>
+<script>
+  // The app URL defaults to index.html next to this page; override with ?url=https://...
+  var params = new URLSearchParams(location.search);
+  var appUrl = params.get('url') || new URL('index.html', location.href).href;
+  var payload = {
+    title: 'Habits',
+    url: appUrl,
+    description: 'Minimal daily habit tracker: yes/no and amount habits',
+    iconUrl: new URL('icon.png', appUrl).href,
+    themeColor: '#FE5000'
+  };
+  var text = JSON.stringify(payload);
+  document.getElementById('json').textContent = JSON.stringify(payload, null, 2);
+  new QRCode(document.getElementById('qr'), { text: text, width: 280, height: 280, correctLevel: QRCode.CorrectLevel.M });
+</script>
+</body>
+</html>
