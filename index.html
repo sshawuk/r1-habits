@@ -301,8 +301,9 @@ main::-webkit-scrollbar{display:none}
     if (ui.view === 'today') activate(ui.sel);
     else if (ui.view === 'qty' || ui.view === 'week' || ui.view === 'manage') go('today');
   }
-  window.addEventListener('scrollDown', function(){ wheel(1); });
-  window.addEventListener('scrollUp', function(){ wheel(-1); });
+  // Wheel direction flipped to feel natural on the R1
+  window.addEventListener('scrollDown', function(){ wheel(-1); });
+  window.addEventListener('scrollUp', function(){ wheel(1); });
   window.addEventListener('sideClick', side);
   // Keyboard equivalents for testing in a desktop browser
   document.addEventListener('keydown', function(e){
