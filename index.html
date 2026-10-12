@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Habits</title>
 <style>
 :root{--bg:#000;--fg:#f4f4f4;--mute:#7a7a7a;--line:#262626;--card:#121212;--acc:#FE5000}
@@ -201,7 +204,8 @@ main::-webkit-scrollbar{display:none}
         '<small>' + (h.type === 'bool' ? 'Yes / No' : 'Target ' + fmt(h.target) + ' ' + esc(h.unit)) + '</small></button>' +
         '<button class="ib" data-act="up" data-i="' + i + '"' + (i ? '' : ' disabled') + '>\u2191</button></div>';
     }).join('');
-    return hdr('Habits', 'back') + '<main id="scroller">' + list + '<button class="add" data-act="add">+ Add habit</button></main>';
+    return hdr('Habits', 'back') + '<main id="scroller">' + list + '<button class="add" data-act="add">+ Add habit</button></main>' +
+      '<footer class="hint">version 3</footer>';
   }
 
   function vEdit(){

@@ -21,7 +21,9 @@ p{margin:0;color:#999;font-size:14px}
 <script>
   // The app URL defaults to index.html next to this page; override with ?url=https://...
   var params = new URLSearchParams(location.search);
-  var appUrl = params.get('url') || new URL('index.html', location.href).href;
+  // Bump VERSION on every change: a new URL forces the R1 to fetch a fresh copy instead of its cache
+  var VERSION = '3';
+  var appUrl = params.get('url') || new URL('index.html?v=' + VERSION, location.href).href;
   var payload = {
     title: 'Habits',
     url: appUrl,
